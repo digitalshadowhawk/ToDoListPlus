@@ -1,0 +1,4 @@
+todo:
+- add a task with /todo add <msg>
+- check one off with /todo remove <(number) index>
+- try "/todo remove 3" to remove this

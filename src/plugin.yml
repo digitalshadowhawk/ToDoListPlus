@@ -1,0 +1,60 @@
+main: me.shadowhawk.todolistplus.ToDoListPlus
+name: ToDoListPlus
+version: 1.0
+author: ShadowHawk
+description: A To-Do List Plugin based on acuddlyheadcrab's ToDoList
+commands:
+  todo:
+    description: manages the personal to-do list
+    usage: /<command> <add|remove> <message>
+    aliases: td
+    permission: todolist.user
+  admintodo:
+    description: manages the admin to-do list
+    usage: /admintodo <add|remove> <message>
+    aliases: atd
+    permission: todolist.admin
+permissions:
+    todolist.*:
+        description: Gives access to all todo list commands
+        children:
+            todolist.admin: true
+            todolist.admin.add: true
+            todolist.admin.remove: true
+            todolist.admin.view: true
+            todolist.user: true
+            todolist.user.add: true
+            todolist.user.remove: true
+            todolist.user.view: true
+    todolist.admin:
+        description: grants all admin To-Do List commands
+        default: op
+        children:
+            todolist.admin.add: true
+            todolist.admin.remove: true
+            todolist.admin.view: true
+    todolist.admin.add:
+        description: grants access to add entries to the admin To-Do List
+        default: op
+    todolist.admin.remove:
+        description: grants access to remove entries from the admin To-Do List
+        default: op
+    todolist.admin.view:
+        description: grants access to view the admin To-Do List
+        default: op
+    todolist.user:
+        description: grants all user To-Do List commands
+        default: op
+        children:
+            todolist.admin.add: true
+            todolist.admin.remove: true
+            todolist.admin.view: true
+    todolist.user.add:
+        description: grants access to add entries to the personal To-Do List
+        default: op
+    todolist.user.remove:
+        description: grants access to remove entries from the personal To-Do List
+        default: op
+    todolist.user.view:
+        description: grants access to view the personal To-Do List
+        default: op
